@@ -13,3 +13,9 @@
 
 Route::get('/', function () {
 });
+
+Route::group(['prefix' => 'articles'], function (){
+  Route::get('view/', function(){
+
+  });
+});

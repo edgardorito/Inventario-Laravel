@@ -19,6 +19,9 @@ class AddProductsTable extends Migration
             $table->integer('quantity');
             $table->integer('unitPrice');
             $table->integer('totalPrice');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
