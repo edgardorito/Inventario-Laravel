@@ -12,10 +12,12 @@
 */
 
 Route::get('/', function () {
+  return view('welcome');
 });
 
-Route::group(['prefix' => 'articles'], function (){
-  Route::get('view/', function(){
-
-  });
+Route::group(['prefix' => 'users'], function (){
+  Route::get('view/{id}', [
+    'uses' => 'UserController@view',
+    'as' => 'usersView'
+  ]);
 });

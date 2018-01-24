@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>
-    </title>
-  </head>
-  <body>
-
-  </body>
-</html>
+@extends('admin.template.main')
+<h1>Esto es bootstrap</h1>
+<a href="" class="btn btn-success"> Soy un boton de bootstrap </a>
