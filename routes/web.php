@@ -15,9 +15,6 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::group(['prefix' => 'users'], function (){
-  Route::get('view/{id}', [
-    'uses' => 'UserController@view',
-    'as' => 'usersView'
-  ]);
+Route::group(['prefix' => 'admin'], function (){
+  Route::resource('users','UsersController');
 });
