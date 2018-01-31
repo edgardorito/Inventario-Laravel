@@ -17,13 +17,14 @@ class AddProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('quantity');
-            $table->integer('unitPrice');
-            $table->integer('totalPrice');
+            $table->double('unitPrice');
+            $table->double('totalPrice');
+            $table->dateTimeTz('date');
             $table->string('slug');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->timestamps();
+            $table->timestampsTz();
         });
     }
 

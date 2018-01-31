@@ -12,9 +12,20 @@
 */
 
 Route::get('/', function () {
-  return view('welcome');
+  return view('admin.users.index');
 });
 
 Route::group(['prefix' => 'admin'], function (){
   Route::resource('users','UsersController');
+  Route::get('users/{id}/destroy', [
+    'uses' => 'UsersController@destroy',
+    'as' => 'admin.users.destroy'
+  ]);
+
+  Route::resource('products','ProductsController');
+  Route::get('products/{id}/destroy', [
+    'uses' => 'ProductsController@destroy',
+    'as' => 'admin.products.destroy'
+  ]);
+
 });

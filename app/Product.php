@@ -15,7 +15,7 @@ class Product extends Model
 
     protected $table = "products";
 
-    protected $fillable = ['name','quantity','unitPrice','totalPrice','slug'];
+    protected $fillable = ['name','quantity','unitPrice','totalPrice','date','slug'];
 
     /**
     * Return the sluggable configuration array for this model.
