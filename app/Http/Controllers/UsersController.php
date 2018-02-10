@@ -9,6 +9,11 @@ use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller{
 
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
   public function index(){
     $users = User::orderBy('id','ASC')->paginate(5);
 
@@ -26,7 +31,7 @@ class UsersController extends Controller{
     $user->password = bcrypt($request->password);
     $user->save();
 
-    Flash("Se ha registrado ". $user->name . "de forma existosa" )->success();
+    Flash("Se ha registrado ". $user->name . " de forma existosa" )->success();
     return redirect()->route('users.index');
   }
 
