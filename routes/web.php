@@ -22,11 +22,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (
     'as' => 'admin.users.destroy'
   ]);
 
-  Route::resource('products','ProductsController');
-  Route::get('products/{id}/destroy', [
-    'uses' => 'ProductsController@destroy',
-    'as' => 'admin.products.destroy'
-  ]);
 });
+
+Route::resource('products','ProductsController');
+Route::get('products/{id}/destroy', [
+  'uses' => 'ProductsController@destroy',
+  'as' => 'admin.products.destroy'
+]);
 
 Auth::routes();

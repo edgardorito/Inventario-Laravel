@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Auth;
 class ProductsController extends Controller{
 
   public function __construct()
 {
     $this->middleware('auth');
 }
+
   public function index(){
-
-    $product = Product::orderBy('id','ASC')->paginate(5);
-
+    $user = Auth::user();
+    $product = Product::where('user_id',$user->id)
+              ->orderBy('name', 'ASC')
+              ->paginate(5);
     return view('admin.products.index')->with('products',$product);
   }
 
@@ -24,12 +27,13 @@ class ProductsController extends Controller{
   }
 
   public function store(Request $request){
+    $user = Auth::user();
     $product = new Product($request->all());
-    $product->user_id = $request->user_id;
+    $product->user_id = $user->id;
     $product->totalPrice = ($request->unitPrice) * $request->quantity;
     $product->save();
 
-    Flash("Se ha registrado el producto". $product->name . "de forma existosa" )->success();
+    Flash("Se ha registrado el producto ". $product->name . " de forma existosa" )->success();
     return redirect()->route('products.index');
   }
 

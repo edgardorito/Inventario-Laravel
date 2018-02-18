@@ -13,13 +13,8 @@
       </ul>
     </div>
   @endif
-
   {!! Form::open(['route' => 'products.store', 'method' => 'POST']) !!}
       <div class="row justify-content-center">
-        <div class="col-md-auto">
-          {!! Form::label('user_id', 'ID del usuario') !!}
-          {!! Form::number('user_id', null, ['class' => 'form-control', 'placeholder' =>  'ID usuario', 'required']) !!}
-        </div>
         <div class="col-md-auto">
           {!! Form::label('name', 'Nombre del producto') !!}
           {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' =>  'Nombre', 'required']) !!}

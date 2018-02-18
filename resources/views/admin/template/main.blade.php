@@ -34,6 +34,9 @@
             <li class="nav-item active">
               <a class="nav-link" href=" {{ route('products.index' )}} ">Productos<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+              <span class="badge badge-warning"> {{ Auth::user()->type }} </span>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}

@@ -3,11 +3,9 @@
 @section('title', 'Lista de productos')
 
 @section('content')
-
   <a href="{{ route('products.create') }}" class="btn btn-info">Registrar nuevo producto</a><br><br>
   <table class= "table table-hover" b>
     <thead>
-      <th>ID</th>
       <th>Nombre</th>
       <th>Cantidad</th>
       <th>Precio unitario</th>
@@ -17,9 +15,9 @@
       <th>Acción</th>
     </thead>
     <tbody>
+
       @foreach($products as $product)
         <tr>
-          <td>{{ $product->id }}</td>
           <td>{{ $product->name }}</td>
           <td>{{ $product->quantity }}</td>
           <td>{{ $product->unitPrice }}</td>
